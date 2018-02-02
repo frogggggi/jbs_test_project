@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load editlink %}
+
+{% block login %}
+    {% if username %}
+        <li><a href="/auth/logout/">Выйти ({{ username }})</a></li>
+    {% else %}
+        <li><a href="/auth/login/">Войти {{ request.user }}</a></li>
+    {% endif %}
+{% endblock %}
+
+
+<!--
+
+{ % edit_link request.user %}{ % url 'post_edit' %}{ % endblock %}
+-->
+
+{% block content %}
+    {% editlink %}
+<h3>Данные
+
+    {% if username %}
+        <a class="btn btn-default" href="{% url 'post_edit' %}">
+        <span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+</h3>
+<div>
+    <div><b>Имя:</b> {{ name }}</div>
+    <div><b>Фамилия:</b> {{ surname }}</div>
+    <div><b>Дата рождения:</b> {{ birthdate }}</div>
+    <div><b>Биография:</b> {{ bio }}</div>
+    <div><b>Телефон:</b> {{ phone }}</div>
+    <div><b>Скайп:</b> {{ skype }}</div>
+    <div><b>Фото:</b>
+    {% if photo %}
+        <div><img src="/media/{{ photo }}" alt=""/></div>
+    {% else %}
+        <div id="photo-el">
+           <div>нет фото</div>
+        </div>
+    {% endif %}
+    </div>
+
+    <h4>TEMPLATE_CONTEXT_PROCESSORS:</h4>
+
+
+    {{ MY_EMAIL }}<br/>
+    {{ MY_NAME }}<br/>
+    <br/>
+    response_dict:<br/>
+    {{ response_dict }}<br/>
+
+
+    <div>
+        <h4>HTTP-запросы в БД:</h4>
+        <ul>
+            <li><a href="/requests/">request</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

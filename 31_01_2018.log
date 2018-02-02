@@ -1,0 +1,8 @@
+[<django.db.models.fields.AutoField: id>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: surname>, <django.db.models.fields.DateTimeField: birthdate>, <django.db.models.fields.TextField: bio>, <django.db.models.fields.CharField: phone>, <django.db.models.fields.CharField: skype>, <django.db.models.fields.files.ImageField: photo>]
+Presentation 8
+Presentation 8
+Presentation 8
+Presentation 8
+Presentation 8
+Presentation 8
+Presentation 8

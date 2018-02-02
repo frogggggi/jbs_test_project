@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Task 2</h2>
+    <div>
+        Create middleware that stores all http requests into the database. Also, on a separate page show first
+        10 http requests that are stored by middleware.
+    </div>
+    <h2>HTTP Requests</h2>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Url</th>
+                <th>Status Code</th>
+                <th>Date&#38;Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in querysets %}
+            <tr>
+                <td>{{ request.method }}</td>
+                <td>{{ request.path }}</td>
+                <td>{{ request.status_code }}</td>
+                <td>{{ request.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
